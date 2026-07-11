@@ -7,3 +7,13 @@ Evaluar y comparar el desempeño predictivo de modelos estadísticos clásicos, 
 ## Dataset
 Para el desarrollo del proyecto trabajamos con 9 conjuntos de datos publicos organizados en tres ámbitos de aplicación.
 ### Salud Pública
+- Life Expectancy
+- Air Quality Data in India
+- Health Nutrition and Population Statiscs
+
+### Financiero
+- Bitcoin Historical Data
+- S&P 500 Historical Prices
+- VIX Historical Daily
+
+###
