@@ -51,3 +51,11 @@ Posteriormente, para casa dataset prepaaramos y realizamos un análisis explorat
 Después evaluamos el desempeño de cada modelo utilizando métricas como MAE, RMSE, MAPE y sMAPE, lo que nos permitió realizar una comparación entre los diferentes enfoques. Finalmente, analizamos e interpretamos los resultados obtenidos para identificar el comportamiento de cada modelo y comprender sus fortalezas y limitaciones en función de las caracterísricas de cada conjunto de datos.
 
 ## Explicabilidad (XAI)
+Como parte del rpoyecto incorporamos un componente de explicabilidad con el propósito de interpretar el comportamiento de los modelos evaluados. En los modelos estadísticos, la interpretación se realizó a partir de sus propios componenetes y tendencias. En el caso del modelo basado en Inteligencia Artificial Generativa, analizamos las explicaciones generadas mediante prompting. Además, consideramos el análisis de interpretabilidad como un elemento importante para complementar la evaluación de los distintos enfoques utilizados en el proyecto.
+
+## Resultados
+
+## Conclusiones
+
+## Reporte
+El repositorio incluyé un reporte donde se documenta con mayor detalle la metodología utilizada, el análisis realizado para cada conjunto de datos, la comparación entre los modelos evaluados, la interpretación de los resultados obtenidos y las conclusiones fianles del estudio.
