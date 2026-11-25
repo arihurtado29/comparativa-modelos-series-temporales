@@ -1,37 +1,38 @@
 # Comparativa de Modelos para el Pronóstico de Series Temporales
-Este proyecto tiene como objetivo comparar diferentes enfoques para el pronóstico de series temporales utilizando conjuntos de datos públicos de los ámbitos de salud pública, financiero y desempeño educativo. Para ello, trabajamos con modelos estadísticos clásicos, modelos de Deep Learning y un modelo basado en Inteligencia Artificial Generativa, con el fin de analizar su desempeño mediante distintas métricas de evaluación e incorporar un componente de explicabilidad que facilitara la interpretación de los resultados obtenidos.
+En este proyecto comparamos distintos enfoques para el pronóstico de series temporales usando conjuntos de datos públicos de salud pública, finanzas y desempeño educativo. Evaluamos modelos estadísticos clásicos, redes de Deep Learning y un modelo de Inteligencia Artificial Gnerativa bajo las mismas condiciones. midiendi su precisión y analizando qué tan fácil es interpretar sus resultados (XAI).
 
 ## Objetivo
-Evaluar y comparar el desempeño predictivo de modelos estadísticos clásicos, modelos Deep Learning y un modelo basado en Inteligencia Artificial Generativa (Gemini) para el pron+ostico de series temporales en distintos ámbitos de aplicación, con el propósito de identificar sus fortalezas, limitaciones e interpretabilidad utilizando diferentes conjuntos de datos públicos.
+Evaluar y comparar el desempeño predictivo de modelos estadísticos clásicos, modelos Deep Learning e Inteligencia Artificial Generativa (Gemini 2.5 Flash) en distintos ámbitos de aplicación, identificando sus fortalezas, limitaciones y nivel de interpretabilidad.
 
 ## Dataset
-Para el desarrollo del proyecto trabajamos con 9 conjuntos de datos publicos organizados en tres ámbitos de aplicación.
+Trabajamos con **9 conjuntos de datos publicos** organizados en tres ámbitos de estudio:
 ### Salud Pública
-- Life Expectancy
-- Air Quality Data in India
-- Health Nutrition and Population Statiscs
+- **Life Expectancy** Esperanza de vida al nacer en México.
+- **Air Quality Data in India** Mediciones diarias de material particulado PM2.5.
+- **Health Nutrition and Population Statiscs** Tasa de fertilidad en adolescentes.
 
 ### Financiero
-- Bitcoin Historical Data
-- S&P 500 Historical Prices
-- VIX Historical Daily
+- **Bitcoin Historical Data** Precio diario de cierre en USD.
+- **S&P 500 Historical Prices** Cotización diaria del índice bursátil.
+- **VIX Historical Daily** índice diario de volatilidad del mercado.
 
 ### Desempeño Educativo
-- World Bank Education Statistics
-- UNESCO - Tasa de Finalización (Secundaria básica, ambos sexos)
-- Times World University Rankings
+- **World Bank Education Statistics** Tasa de inscripción en educación primaria.
+- **UNESCO - Tasa de Finalización (Secundaria básica, ambos sexos)** Porcentaje de finalización en secundaria básica (ambos sexos).
+- **Times World University Rankings** Puntuación longitudinal de instituciones educativas.
 
 ## Modelos evaluados
-### Modelos estadísticos clásicos
+**Modelos estadísticos clásicos**
+- Media Móvil Simple
 - ARIMA
 - Prophet
 
-### Modelos de Deep Learning
+**Modelos de Deep Learning**
 - LSTM
 - Transformer
 
-### Modelo basado en Inteligencia Artificial Generativa
-- Gemini mediante prompting estructurado
+**Modelo basado en Inteligencia Artificial Generativa**
+- Gemini mediante *prompting* estructurado (*zero-shot*)
 
 ## Herramientas y tecnologías utilizadas
 - Python
@@ -46,16 +47,33 @@ Para el desarrollo del proyecto trabajamos con 9 conjuntos de datos publicos org
 - Gemini
 
 ## Metodología
-Durante el desarrollo del proyecto trabajamos con diferentes conjuntos de datos públicos correspondientes a los ámbitos de salud pública, financiero y desempeño educativo. Este procedimiento se llevó a cabo  en cada uno de los cuadernos que trabajamos para los distintos dataset. Primero investigamos los conjuntos de datos que utilizaríamos, revisando su origen, el significado de cada una de sus variables entre otras características, esto nos permitió comprender mejor la información con la que trabajaríamos antes de comenzar el análisis.
-Posteriormente, para casa dataset prepaaramos y realizamos un análisis exploratorio con el fin de conocer su estructura, verificar la calidad de la información y realizar el procesamiento necesario para su análisis. Una vez concluida esta etapa, implementamos los diferentes modelos del pronóstico de series temporales y generamos las predicciones correspondientes para cada conjunto de datos.
-Después evaluamos el desempeño de cada modelo utilizando métricas como MAE, RMSE, MAPE y sMAPE, lo que nos permitió realizar una comparación entre los diferentes enfoques. Finalmente, analizamos e interpretamos los resultados obtenidos para identificar el comportamiento de cada modelo y comprender sus fortalezas y limitaciones en función de las caracterísricas de cada conjunto de datos.
+Aplicamos el mismo flujo de trabajo de manera independiente en cada uno de los cuadernos correspondientes a los 9 datasets:
+
+1. **Revisión y exploración:** Analizamos el origen y las variables de cada serie, ordenamos los registros cronológicamente y limpiamos valores faltantes.
+2. **Preparación:** Realizamos particiones cronológicas estrictas (80 % entrenamiento / 20 % prueba) y escalamos los datos (0 a 1) con ventanas deslizantes de 50 observaciones para las redes neuronales.
+3. **Implementación:** Entrenamos y ejecutamos los modelos clásicos, las redes de Deep Learning y las consultas estructuradas hacia Gemini.
+4. **Evaluación:** Medimos el error de cada enfoque con **MAE, RMSE, MAPE y sMAPE (%)** para compararlos de forma justa entre distintas escalas.
 
 ## Explicabilidad (XAI)
-Como parte del rpoyecto incorporamos un componente de explicabilidad con el propósito de interpretar el comportamiento de los modelos evaluados. En los modelos estadísticos, la interpretación se realizó a partir de sus propios componenetes y tendencias. En el caso del modelo basado en Inteligencia Artificial Generativa, analizamos las explicaciones generadas mediante prompting. Además, consideramos el análisis de interpretabilidad como un elemento importante para complementar la evaluación de los distintos enfoques utilizados en el proyecto.
+Para complementar las métricas de error, analizamos qué tan transparente es cada familia de modelos:
+
+* **Modelos estadísticos:** Interpretación directa a partir de sus coeficientes, tendencia y estacionalidad.
+* **Deep Learning:** Estimación de la importancia de los datos pasados mediante los pesos de la última capa densa.
+* **IA Generativa:** Revisión de las explicaciones cualitativas en lenguaje natural generadas junto con cada estimación.
 
 ## Resultados
+Tomando el **sMAPE (%)** como métrica principal de comparación entre dominios:
+
+* **Salud Pública:** ARIMA logró el menor error en series anuales estables como esperanza de vida (**0.14 %**) y fertilidad (**0.21 %**), mientras que LSTM lideró en calidad del aire (**12.60 %**).
+* **Financiero:** Ante alta volatilidad, LSTM obtuvo los mejores resultados en Bitcoin (**1.75 %**) y VIX (**4.29 %**), mientras que Prophet destacó en el S&P 500 (**1.00 %**).
+* **Desempeño Educativo:** ARIMA obtuvo errores mínimos en las series anuales de UNESCO (**0.024 %**) y Banco Mundial (**0.29 %**), y LSTM lideró en *Times University Rankings* (**0.42 %**).
+* **Gemini 2.5 Flash:** Alcanzó errores muy bajos en pronósticos puntuales de un solo paso (**0.14 %** en Bitcoin), aunque sin acumular incertidumbre multipaso como el resto de modelos.
 
 ## Conclusiones
+* **No existe un modelo único para todo:** La mejor opción depende de qué tan estable sea la serie y de cuánto se necesite explicar el resultado.
+* **Series estables:** En datos anuales con cambios graduales, los modelos clásicos como **ARIMA** son más precisos, ligeros y fáciles de interpretar.
+* **Alta volatilidad:** En mercados y variables con cambios bruscos, las redes **LSTM** se adaptan mucho mejor que los métodos tradicionales.
+* **Aporte de la IA Generativa:** **Gemini** suma valor al acompañar sus estimaciones con explicaciones claras en lenguaje natural, funcionando como un buen complemento interpretativo.
 
 ## Reporte
-El repositorio incluyé un reporte donde se documenta con mayor detalle la metodología utilizada, el análisis realizado para cada conjunto de datos, la comparación entre los modelos evaluados, la interpretación de los resultados obtenidos y las conclusiones fianles del estudio.
+El repositorio incluye un reporte técnico donde se documenta con mayor detalle la metodología utilizada, el análisis individual por conjunto de datos, las gráficas comparativas y las conclusiones finales del estudio.
