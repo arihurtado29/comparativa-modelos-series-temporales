@@ -7,19 +7,19 @@ Evaluar y comparar el desempeño predictivo de modelos estadísticos clásicos, 
 ## Dataset
 Trabajamos con **9 conjuntos de datos publicos** organizados en tres ámbitos de estudio:
 ### Salud Pública
-- **Life Expectancy** Esperanza de vida al nacer en México.
-- **Air Quality Data in India** Mediciones diarias de material particulado PM2.5.
-- **Health Nutrition and Population Statiscs** Tasa de fertilidad en adolescentes.
+- **Life Expectancy** (Esperanza de vida al nacer en México).
+- **Air Quality Data in India** (Mediciones diarias de material particulado PM2.5).
+- **Health Nutrition and Population Statiscs** (Tasa de fertilidad en adolescentes).
 
 ### Financiero
-- **Bitcoin Historical Data** Precio diario de cierre en USD.
-- **S&P 500 Historical Prices** Cotización diaria del índice bursátil.
-- **VIX Historical Daily** índice diario de volatilidad del mercado.
+- **Bitcoin Historical Data** (Precio diario de cierre en USD).
+- **S&P 500 Historical Prices** (Cotización diaria del índice bursátil).
+- **VIX Historical Daily** (Índice diario de volatilidad del mercado).
 
 ### Desempeño Educativo
-- **World Bank Education Statistics** Tasa de inscripción en educación primaria.
-- **UNESCO - Tasa de Finalización (Secundaria básica, ambos sexos)** Porcentaje de finalización en secundaria básica (ambos sexos).
-- **Times World University Rankings** Puntuación longitudinal de instituciones educativas.
+- **World Bank Education Statistics** (Tasa de inscripción en educación primaria).
+- **UNESCO - Tasa de Finalización (Secundaria básica, ambos sexos)** (Porcentaje de finalización en secundaria básica (ambos sexos)).
+- **Times World University Rankings** (Puntuación longitudinal de instituciones educativas).
 
 ## Modelos evaluados
 **Modelos estadísticos clásicos**
